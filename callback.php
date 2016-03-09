@@ -1,12 +1,13 @@
 <?php
+session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
 $fb = new Facebook\Facebook([
-	'app_id' => '{app-id}', // Replace {app-id} with your app id
-	'app_secret' => '{app-secret}',
+	'app_id' => getenv('APP_ID'),
+	'app_secret' => getenv('APP_SECRET'),
 	'default_graph_version' => 'v2.5',
 ]);
 
